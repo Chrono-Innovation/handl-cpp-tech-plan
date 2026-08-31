@@ -42,13 +42,6 @@
   header.hero .inner{max-width:1760px;margin:0 auto;padding:64px 24px 72px;position:relative;z-index:2}
   h1{font-size:clamp(1.9rem,3.6vw,3rem);font-weight:700;letter-spacing:-.025em;margin:0;line-height:1.1}
   .lede{margin:18px 0 0;max-width:44ch;font-size:1.06rem;color:var(--zinc-400)}
-  .why{
-    margin:30px 0 0;max-width:80ch;
-    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
-    border-radius:8px; padding:16px 18px;
-    font-size:.9rem; color:var(--zinc-400);
-  }
-  .why b{font-weight:600;color:var(--zinc-200)}
   code{font-family:var(--mono);font-size:.85em;color:var(--zinc-200)}
   .shape{position:absolute;pointer-events:none;user-select:none;z-index:1}
 
@@ -158,7 +151,6 @@
   <div class="inner">
     <h1>Compensation &amp; payroll system</h1>
     <p class="lede">The AWS architecture behind clinic onboarding and bi-weekly payroll execution.</p>
-    <div class="why"><b>Why four accounts rather than one.</b> A boundary only exists where a role or a key could not do the same job. <code>cpp-ingest</code> is the one account with a route to the internet and the one place unfiltered EMR data ever lands. <code>cpp-audit</code> receives a trail that production is not permitted to rewrite or delete. <code>cpp-shared</code> keeps the right to change the system separate from the right to operate it. Onboarding deliberately stays inside <code>cpp-prod</code> — what matters there is which role may promote a rule, and that is IAM, not network. The distinction is failure mode: an account boundary with a policy on top fails closed, where in-account role separation fails open the moment someone writes a permissive rule.</div>
   </div>
 </header>
 
